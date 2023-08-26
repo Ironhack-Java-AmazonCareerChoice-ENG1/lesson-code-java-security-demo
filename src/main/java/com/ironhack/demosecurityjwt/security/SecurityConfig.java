@@ -80,6 +80,7 @@ public class SecurityConfig {
                 .requestMatchers(GET, "/api/v1/users").hasAnyAuthority("ROLE_ADMIN")
                 .requestMatchers(POST, "/api/v1/users").hasAnyAuthority("ROLE_ADMIN")
                 .requestMatchers(GET, "/api/v1/greet").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
+                .requestMatchers(GET, "/api/v1/greet/admin").hasAnyAuthority("ROLE_ADMIN")
                 .anyRequest().authenticated());
         // add the custom authentication filter to the http security object
         http.addFilter(customAuthenticationFilter);

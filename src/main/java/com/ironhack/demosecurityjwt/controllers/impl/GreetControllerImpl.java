@@ -19,4 +19,12 @@ public class GreetControllerImpl implements GreetController {
         log.info("User {} has role {}", authentication.getName(), authentication.getAuthorities());
         return "hello " + authentication.getName();
     }
+
+    @GetMapping("admin")
+    @Override
+    public String greetForAdmin() {
+        var authentication = SecurityContextHolder.getContext().getAuthentication();
+        log.info("User {} has role {}", authentication.getName(), authentication.getAuthorities());
+        return "hello " + authentication.getName();
+    }
 }
